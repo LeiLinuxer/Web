@@ -1,4 +1,4 @@
-FROM tomcat:9-jdk24-openjdk
+FROM tomcat:9-jdk8-openjdk
 
 # 第二步：将本地webapp目录复制到容器内的Tomcat默认应用目录
 # 注意：`src/main/webapp` 是你项目中Web资源的路径（需与实际一致）
