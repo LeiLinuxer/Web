@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Three.js 3D动画</title>
+  <!-- 引入Three.js库 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script>
+    // 1. 创建场景
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf0f0f0); // 背景色
+
+    // 2. 创建相机（透视相机：视野角度75°，宽高比=窗口宽高，近截面0.1，远截面1000）
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 5; // 相机位置（沿Z轴远离原点）
+
+    // 3. 创建渲染器并添加到页面
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight); // 渲染器尺寸
+    document.body.appendChild(renderer.domElement);
+
+    // 4. 创建物体：球体（几何体+材质）
+    const geometry = new THREE.SphereGeometry(1.5, 32, 32); // 半径1.5，分段数32
+    const material = new THREE.MeshPhongMaterial({ // 带高光的材质
+      color: 0x00ff00, // 绿色
+      wireframe: false, // 不显示线框
+      shininess: 100 // 高光强度
+    });
+    const sphere = new THREE.Mesh(geometry, material); // 物体=几何体+材质
+    scene.add(sphere); // 将物体添加到场景
+
+    // 5. 添加光源（否则材质无法显示颜色）
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // 环境光（柔和）
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 0.8); // 点光源（模拟灯泡）
+    pointLight.position.set(5, 5, 5); // 光源位置
+    scene.add(pointLight);
+
+    // 6. 动画循环：持续更新场景
+    function animate() {
+      requestAnimationFrame(animate); // 递归调用，保持动画
+
+      // 球体旋转（每帧绕X轴转0.01弧度，Y轴转0.02弧度）
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.02;
+
+      renderer.render(scene, camera); // 渲染场景
+    }
+    animate(); // 启动动画
+
+    // 窗口大小变化时，更新相机和渲染器
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

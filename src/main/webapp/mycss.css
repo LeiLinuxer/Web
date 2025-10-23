@@ -1,0 +1,179 @@
+:root {
+    --color-dark: #121212;
+    --color-darker: #0A0A0A;
+    --color-neon: #8B5CF6;
+    --color-neon-green: #10B981;
+    --color-gray-cool: #374151;
+    --color-gray-light: #9CA3AF;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --border-radius: 8px;
+    --border-radius-lg: 16px;
+  }
+.背景{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color:var(--color-dark);
+}
+.左上角标题{
+    font-size:20px;
+}
+
+.主盒的父{
+    
+    display: flex;
+  justify-content: center; /* 垂直方向居中（可根据需求改为 flex-start/end） */
+  align-items: center;     /* 原水平居中，保留以保证垂直方向的对齐逻辑 */
+  height:100%;
+  
+}
+
+.主盒{
+    border: 1px solid rgba(55, 65, 81, 0.3);
+    height: auto;
+    width: auto;
+    border-radius: 15px;
+    background-color: var(--color-darker);
+    box-shadow:0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+    margin-right:100px;
+    margin-left: auto;  /* 关键：将表单向右侧推挤 */
+    padding:30px;
+    
+}.主盒头部{
+    background-color:transparent;
+    width: auto;
+    height:auto;
+    margin-bottom:20px;
+    
+}.标题{
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 8px 0;
+    margin-right: 32px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size:23px;
+    font-weight: bold;
+}
+.标题.active {
+    color: white;
+    border-bottom-color: var(--color-neon);
+  }
+  
+  .标题.inactive {
+    color: var(--color-gray-light);
+  }
+  .标题:hover{
+    color:white;
+  }
+.主盒主体{
+    background-color: transparent;
+    
+    
+}
+.信息标题{
+    font-size:15px;
+    
+    color: var(--color-gray-light);
+}
+.信息输入框 {
+    margin-top:10px;
+    width: 280px;
+    max-width:280px;
+    height: 20px;
+    padding: 10px;
+    /* text-align: center; */
+    border: solid;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+    border-width: 1px;
+    border-color: var(--color-gray-cool);
+    padding-left: 20px;
+    background-color: transparent;
+    color:var(--color-gray-light);
+
+  }
+  
+.信息输入框:focus {
+color:var(--color-neon);
+outline-color: var(--color-neon);
+box-shadow: 0px 0px 10px var(--color-neon);
+transition: .5s;
+transition-property: box-shadow;
+
+}
+.信息输入框::placeholder{
+    position: relative;
+    font-size:16px;
+    
+}
+.星号{
+    color:var(--color-gray-light);
+}
+.用户名整体框{
+    margin-top: 10px;
+}
+.提交按钮{
+    
+    width:315px;
+    position:relative;
+    margin-top:22px;
+    
+    
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.提交{
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--color-neon), var(--color-neon-green));
+    color: white;
+    position: relative;
+        font-size:17px;
+    width:355px;
+    height:45px;
+    font-weight: bold;
+    border:none;
+}
+.去登陆之父{
+    
+    position: relative;
+    width: 355px;
+    height:20px;
+}
+.提交:hover {
+    
+    box-shadow: -7px 0px 20px rgba(139, 92, 246, 0.7), 7px 0px 20px rgba(4, 255, 100, 0.5);
+    transition: .2s;
+    transition-property: box-shadow;
+}
+.去登陆{
+    position:absolute;
+    bottom: 0px;       /* 距离父容器底部的距离（可自定义） */
+    right: 0px;  
+    color:blue;
+    
+}
+.账户名错误隐示{
+    display:none;
+}
+.账户名错误显示{
+    margin-top:0px;
+}
+.border-danger {
+    border-color: red;        /* 错误边框颜色（核心） */
+    border-width: 1px;        /* 边框宽度 */
+    border-style: solid;      /* 边框样式（solid/dashed等） */
+  }
+.text-danger{
+    color:red;
+    font-size:15px;
+} 
