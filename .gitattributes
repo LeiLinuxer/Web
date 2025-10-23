@@ -1,4 +1,3 @@
-lib/** filter=lfs diff=lfs merge=lfs -text
-src/main/webapp/lib/graalvm-jdk-17.0.12.rar filter=lfs diff=lfs merge=lfs -text
-
+git lfs track "src/main/webapp/lib/graalvm-jdk-17.0.12.rar"
+git lfs track "src/main/webapp/lib/graalvm-jdk-17.0.12/lib/modules"
 
