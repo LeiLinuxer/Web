@@ -17,8 +17,6 @@ const password2input=document.getElementById('password2');
 const username2input=document.getElementById('username2');
 const username2Error=document.getElementById('username2Error');
 const password2Error=document.getElementById('password2Error');
-const moment = require('moment');
-const formattedTime = moment().format('YYYYMMDDHHmmss');
 let isValid1 = true;
 let isValid2=true;
 const isEmpty = (passwordError) => {
@@ -128,7 +126,6 @@ registerForm.addEventListener('submit', async (e) => {//submit:事件类型 提�
 SignInForm.addEventListener('submit',async(e)=>{
   
   e.preventDefault();
-  console.log(`已提交，当前时间${formattedTime}`);
   if(!username2input.value.trim()){
     showError(username2Error,'请填写账户名');
     isValid2=false;
@@ -162,9 +159,8 @@ SignInForm.addEventListener('submit',async(e)=>{
       window.location.href='error.html';
     }
     else{
-      console.log(`收到！，当前时间${formattedTime}`);
-      console.log(response.data);
-      console.log('ok');
+      
+      window.location.href="success.html";
     }
   })
   .catch(error => {
