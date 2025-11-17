@@ -1,0 +1,17 @@
+:root {
+   
+    --font-family: '微软雅黑';
+    --color-dark: #121212;
+    --color-darker: #0A0A0A;
+    --color-neon: #7a45f5;
+    --color-neon-background1 :#693dcf2f;
+        --color-neon-background2 :#693dcf15;
+
+    --color-neon-green: #10B981;
+    --color-gray-cool: #374151;
+    --color-gray-light: #9CA3AF;
+    
+    --junior-title-padding:8px 16px;
+    --junior-title-size:13px;
+
+  }
