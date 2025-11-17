@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-252.26830.84">
-    <data-source name="DBMAIN@172.23.72.17" uuid="f1674446-f067-4e24-a581-a91b645c9570">
-      <database-info product="MySQL" version="8.0.43-0ubuntu0.22.04.2" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.4.0 (Revision: 1c3f5c149e0bfe31c7fbeb24e2d260cd890972c4)" dbms="MYSQL" exact-version="8.0.43" exact-driver-version="8.4">
-        <extra-name-characters>$</extra-name-characters>
+    <data-source name="DBMAIN@192.168.2.1" uuid="f1674446-f067-4e24-a581-a91b645c9570">
+      <database-info product="MySQL" version="8.0.43-0ubuntu0.22.04.2" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.0.43" exact-driver-version="8.2">
+        <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />

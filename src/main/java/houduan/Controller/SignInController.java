@@ -24,7 +24,7 @@ public class SignInController {
     @ResponseBody //响应体
     public Object SignIn(@RequestParam(value = "username", required = true) String username,
                        @RequestParam(value = "password", required = true) String password) throws SQLException {
-
+        System.out.println("进来了");
         try{
 
             if(userService.login(username,password)!=null){

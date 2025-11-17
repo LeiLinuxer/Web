@@ -226,7 +226,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from "axios";
-
+axios.defaults.baseURL = '/api'
 // 响应式变量：控制注册/登录表单切换
 const isRegisterActive = ref(true); // true显示注册，false显示登录
 

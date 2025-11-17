@@ -15,7 +15,7 @@ public class DataSourceConfig {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         // 数据库连接信息
-        dataSource.setJdbcUrl("jdbc:mysql://172.23.72.17:3306/DBMAIN?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC");
+        dataSource.setJdbcUrl("jdbc:mysql://192.168.2.1:3306/DBMAIN?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC");
         dataSource.setUsername("Me");
         dataSource.setPassword("@Leiwei88");
 
