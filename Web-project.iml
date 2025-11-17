@@ -4,6 +4,38 @@
     <content url="file://$MODULE_DIR$" dumb="true">
       <excludeFolder url="file://$MODULE_DIR$/out" />
       <excludeFolder url="file://$MODULE_DIR$/repository" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-maven-3.9.11/lib/ext/hazelcast" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-maven-3.9.11/lib/ext/redisson" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-maven-3.9.11/lib/jansi-native/Windows/x86_64" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/webapps/ROOT/WEB-INF" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/webapps/docs/appdev/sample/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/webapps/docs/appdev/sample/web/WEB-INF" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/webapps/docs/jspapi" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/webapps/examples/META-INF" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/webapps/examples/WEB-INF/classes/num" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/apache-tomcat-10.1.47/work" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/languages/nfi/builder/clibraries-none" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/java.logging" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/java.rmi" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/java.sql.rowset" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/jdk.httpserver" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/jdk.jshell" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/jdk.management.jfr" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/jdk.sctp" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/legal/jdk.security.auth" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/graal" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/polyglot/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/adopted_profiles" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/builder/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/macros/gu-launcher" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/macros/native-image-agent-library" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/macros/native-image-launcher" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/macros/polyglot-library" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib/graalvm-jdk-17.0.12/lib/svm/macros/truffle-language-library" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/vue/.vscode" />
     </content>
   </component>
