@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <form id="testForm">
+    <input type="text" name="test">
+    <button type="submit">测试提交</button>
+  </form>
+  <script>
+    document.addEventListener('submit', (e) => {
+      console.log('提交事件触发', e.target);
+      e.preventDefault();
+    }, true);
+  </script>
+</body>
+</html>

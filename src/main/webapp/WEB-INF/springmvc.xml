@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描整个 houduan 包，包含 Controller/Service/Object 等子包 -->
+    <context:component-scan base-package="houduan"/>
+
+    <!-- 开启 Spring MVC 注解驱动（支持 @RequestMapping、@ResponseBody 等） -->
+    <mvc:annotation-driven/>
+
+    <!-- 放行静态资源（如 CSS、JS，避免被控制器拦截） -->
+    <mvc:default-servlet-handler/>
+
+    <bean id="templateResolver" class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
+        <!-- 依赖Spring的上下文（必须设置） -->
+        <!-- 模板文件前缀（路径）：通常放在WEB-INF/templates下（安全，避免直接访问） -->
+        <property name="prefix" value="/WEB-INF/templates/"/>
+        <!-- 模板文件后缀 -->
+        <property name="suffix" value=".html"/>
+        <!-- 模板类型（改为 Thymeleaf 3 支持的枚举值） -->
+        <property name="templateMode" value="HTML"/>
+        <!-- 编码格式（避免中文乱码） -->
+        <property name="characterEncoding" value="UTF-8"/>
+        <!-- 是否缓存模板（开发环境建议关闭，生产环境开启） -->
+        <property name="cacheable" value="false"/>
+    </bean>
+
+    <bean id="templateEngine" class="org.thymeleaf.spring6.SpringTemplateEngine">
+        <!-- 注入模板解析器 -->
+        <property name="templateResolver" ref="templateResolver"/>
+        <!-- 启用Spring EL表达式支持（默认已开启，可省略） -->
+        <property name="enableSpringELCompiler" value="true"/>
+    </bean>
+
+    <bean class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
+        <!-- 注入模板引擎 -->
+        <property name="templateEngine" ref="templateEngine"/>
+        <!-- 编码格式（与模板解析器一致） -->
+        <property name="characterEncoding" value="UTF-8"/>
+        <!-- 视图优先级（数值越小优先级越高，避免与其他视图解析器冲突） -->
+        <property name="order" value="1"/>
+    </bean>
+
+</beans>

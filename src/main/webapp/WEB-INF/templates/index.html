@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<!-- 声明Thymeleaf命名空间（关键，否则表达式不生效） -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Test</title>
+</head>
+<body>
+<!-- 使用th:text表达式获取模型中的message -->
+<h1 th:text="${message}">默认文本（当模板未被解析时显示）</h1>
+</body>
+</html>
