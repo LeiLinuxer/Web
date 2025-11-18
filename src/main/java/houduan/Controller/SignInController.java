@@ -1,6 +1,7 @@
 package houduan.Controller;
 
 import houduan.Object.User;
+import houduan.Service.Result;
 import houduan.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,21 +23,21 @@ public class SignInController {
 
     @RequestMapping(value = "/SignServlet", method = RequestMethod.POST) // 修正引用
     @ResponseBody //响应体
-    public Object SignIn(@RequestParam(value = "username", required = true) String username,
-                       @RequestParam(value = "password", required = true) String password) throws SQLException {
+    public Result<User> SignIn(@RequestParam(value = "username", required = true) String username,
+                               @RequestParam(value = "password", required = true) String password) throws SQLException {
 
         try{
 
             if(userService.login(username,password)!=null){
                 User user=userService.login(username,password);
-                return user;
+                return Result.success(user,"成功");
             } else {
-                return "invalid_credentials";
+                return Result.fail(401,"账户名和密码错误");
             }
 
         }catch(Exception e){
             e.printStackTrace();
-            return "error";
+            return Result.fail(402,e.getMessage());
         }
 
 

@@ -1,4 +1,0 @@
-Bundle-Name=GraalVM Core
-Bundle-Symbolic-Name=org.graalvm
-Bundle-Version=23.0.5
-x-GraalVM-Stability-Level=supported

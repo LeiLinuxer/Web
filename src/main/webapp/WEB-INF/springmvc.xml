@@ -15,9 +15,12 @@
 
     <!-- 开启 Spring MVC 注解驱动（支持 @RequestMapping、@ResponseBody 等） -->
     <mvc:annotation-driven/>
-
+    <mvc:default-servlet-handler />
     <!-- 放行静态资源（如 CSS、JS，避免被控制器拦截） -->
-    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/static/**" location="/static/" />
+    <mvc:resources mapping="/assets/**" location="/static/assets/" />
+    <mvc:resources mapping="/vite.svg" location="/static/" />
+    <mvc:resources mapping="/*.svg" location="/static/" />
 
     <bean id="templateResolver" class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
         <!-- 依赖Spring的上下文（必须设置） -->

@@ -2,6 +2,7 @@ package houduan.Controller;
 
 
 import houduan.Object.User;
+import houduan.Service.Result;
 import houduan.Service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,40 +27,40 @@ public class RegisterController{
     }
     @RequestMapping(value = "/RegisterServlet", method = RequestMethod.POST) // 修正引用
     @ResponseBody //响应体
-    public String register(@RequestParam(value = "username", required = false) String username,
-                           @RequestParam(value = "realName", required = false) String realName,
-                           @RequestParam(value="password", required = false) String password, // 密码参数接收
-                           @RequestParam(value = "age", required = false) String ageStr) {
-
+    public Result<Void> register(@RequestParam(value = "username", required = false) String username,
+                                   @RequestParam(value = "realName", required = false) String realName,
+                                   @RequestParam(value="password", required = false) String password, // 密码参数接收
+                                   @RequestParam(value = "age", required = false) String ageStr) {
+        System.out.println("进");
         // 2. 还是原来的参数校验
         if (username == null || username.trim().isEmpty()) {
-            return "username_empty";
+            return Result.fail(403,"用户名为空");
         }
         if (realName == null || realName.trim().isEmpty()) {
-            return "realname_empty";
+            return Result.fail(405,"姓名为空");
         }
         int age;
         try {
             age = ageStr != null && !ageStr.isEmpty() ? Integer.parseInt(ageStr) : 0;
             if (age < 0 || age > 150) {
-                return "age_invalid_range";
+                return Result.fail(406,"年龄范围错误");
             }
         } catch (NumberFormatException e) {
-            return "age_invalid_format";
+            return Result.fail(407,"年龄格式错误");
         }
 
         // 3. 调用 UserService 处理业务（原来的逻辑移到 service 里了）
         User user = new User(username, realName, password, age); // 创建用户对象
         try {
             if(userService.register(user)) {
-                return "success";
+                return Result.success("成功");
             } else {
-                return "username_exists";
+                return Result.fail(408,"用户名已经存在");
             }
-            /*TODO: 要返回success和fail*/
+
         } catch (SQLException e) {
-            logger.error("Database error when registering user {}", username, e);
-            return "db_error";
+
+            return Result.fail(409,"数据库错误:"+e.getMessage());
         }
     }
 }
