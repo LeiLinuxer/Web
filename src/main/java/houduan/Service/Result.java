@@ -20,8 +20,8 @@ public class Result<T> {
     }
 
     // 失败静态方法
-    public static Result<Void> fail(Integer code, String message) {
-        Result<Void> result = new Result<>();
+    public static<T> Result<T> fail(Integer code, String message) {
+        Result<T> result = new Result<>();
         result.setCode(code);
         result.setMessage(message);
         return result;

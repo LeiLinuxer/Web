@@ -330,21 +330,18 @@ const handleRegister = async () => {
     formData.append('age', registerForm.value.age || '');
 
     // 发送注册请求
-    const response = await fetch('/RegisterServlet', {
-      method: 'POST',
-      body: formData
-    });
-    const result = await response.text();
-
-    if (result === 'success') {
-      alert('注册成功！');
-      // 注册成功后切换到登录表单
-      switchToLogin();
-    } else if (result === 'username_exists') {
-      registerErrors.value.username = { show: true, msg: '该账户名已被注册，请更换' };
-    } else {
-      alert('注册失败，请稍后重试');
-    }
+    const response = await axios.post('/RegisterServlet',formData);
+    
+    console.log("result:"+response.message);
+    // if (result === 'success') {
+    //   alert('注册成功！');
+    //   // 注册成功后切换到登录表单
+    //   switchToLogin();
+    // } else if (result === 'username_exists') {
+    //   registerErrors.value.username = { show: true, msg: '该账户名已被注册，请更换' };
+    // } else {
+    //   alert('注册失败，请稍后重试');
+    // }
   } catch (error) {
     console.error('注册请求失败：', error);
     alert('网络连接失败，请检查服务器');
@@ -378,14 +375,15 @@ const handleLogin = async () => {
 
     // 发送登录请求
     const response = await axios.post('/SignServlet', formData);
-    
-    if (response.data === 'invalid_credentials') {
-      loginErrors.value.credentials = { show: true, msg: '账户名或密码错误' };
-    } else if (response.data === 'error') {
-      window.location.href = 'error.html';
-    } else {
-      window.location.href = 'success.html';
-    }
+    console.log("登录response:"+JSON.stringify(response));
+    console.log("登录response:"+JSON.stringify(response.data));
+    // if (response.data === 'invalid_credentials') {
+    //   loginErrors.value.credentials = { show: true, msg: '账户名或密码错误' };
+    // } else if (response.data === 'error') {
+    //   window.location.href = 'error.html';
+    // } else {
+    //   window.location.href = 'success.html';
+    // }
   } catch (error) {
     console.error('登录请求失败：', error);
     alert('网络连接失败，请检查服务器');

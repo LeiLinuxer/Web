@@ -36,7 +36,7 @@ public class JdbcUserDao implements UserDAO {
     // 实现“插入用户”操作
     @Override
     public boolean insert(User user) throws SQLException {
-        String sql = "INSERT INTO User_table (username, real_name, age) VALUES (?, ?, ?,?)";
+        String sql = "INSERT INTO User_table (username, real_name, password,age) VALUES (?, ?, ?,?)";
         // 用 JdbcTemplate 执行更新，返回影响行数
         int rows = jdbcTemplate.update(sql,
                 user.getUsername(),
