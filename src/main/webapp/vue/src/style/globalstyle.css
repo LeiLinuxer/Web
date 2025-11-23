@@ -3,7 +3,8 @@
     --font-family: '微软雅黑';
     --color-dark: #121212;
     --color-darker: #0A0A0A;
-    --color-neon: #7a45f5;
+    --color-neon: rgb(122, 69, 245);
+    --color-neon-darker: rgb(47, 24, 99);
     --color-neon-background1 :#693dcf2f;
         --color-neon-background2 :#693dcf15;
 
@@ -13,5 +14,17 @@
     
     --junior-title-padding:8px 16px;
     --junior-title-size:13px;
-
+    --left-top-padding:1vw;
+    --All-left-margin:9vw;
+    --All-right-margin:8vw;
+    --右大区整体宽度:36.9vw;
+    --小间隙:0.52vw;
+    --中间隙:0.78vw;
+    --大间隙:1.04vw;
+    --较大间隙:1.30vw;
+    --巨大间隙:1.56vw;
+    --中字号:clamp(17.2px, 0.93vw, 17.6px);
+    --大字号:clamp(17.9px, 1.3vw, 18.2px);
+    --小边隙:25px;
+    --大边隙:50px;
   }

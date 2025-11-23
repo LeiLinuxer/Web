@@ -1,7 +1,7 @@
 <template><!-- html -->
   
   <nav class="navbar">
-    <span class="logo">Native</span>
+    <span class="logo">{{Title}}</span>
 
     <span id="middletag">
       <span id="uptag" v-for="(item,index) in list":key="index">
@@ -16,8 +16,8 @@
 
 <script setup>// javascript
 const menulist=defineProps({
-  list:Array
-
+  list:Array,
+  Title:String
 });
 
  const handleClick=(menuName)=>{//定义点击函数
@@ -43,11 +43,11 @@ const menulist=defineProps({
 .navbar>.logo{
   font-family: '微软雅黑';
 position:absolute;
-  left:180px;
+  left:var(--All-left-margin);
   z-index: 1000;
   color:white;
   font-size:20px;
-  font-weight: 400;
+  font-weight: 900;
 }
 #uptag{
   margin-right: 10px;
@@ -56,5 +56,22 @@ position:absolute;
 #texttag{
   color:rgb(146, 146, 146);
   text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .navbar{
+    justify-content: flex-start;
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  .navbar>.logo{
+    position: static;
+    
+  }
+
+  #middletag{
+    display: none;
+  }
 }
 </style>

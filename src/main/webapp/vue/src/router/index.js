@@ -2,7 +2,8 @@ import {createRouter,createWebHistory} from 'vue-router'
 import index from '../view/home.vue'
 import login from '../view/login.vue'
 import about from '../view/about.vue'
-
+import error from '../view/error.vue'
+import success from '../view/success.vue'
 const routes=[
     {
         path:'/',
@@ -18,6 +19,16 @@ const routes=[
         path:'/about',
         name:'about',
         component:about
+    },
+    {
+        path:'/error/:errorMsg?',
+        name:'error',
+        component:error
+    },
+    {
+        path:'/success/:user?',
+        name:'success',
+        component:success
     }
 ]
 

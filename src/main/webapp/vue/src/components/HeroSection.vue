@@ -1,8 +1,8 @@
 <template>
     <div class="主体">
         <div id="中间光芒"></div>
-        <div class="左英雄区 common-margin-left">
-            <tips :msg="message" class="tipbackcolor"></tips>
+        <div class="左英雄区">
+            <tips :msg="message" class="tipbackcolor1"></tips>
             <div class="左英雄区大标题 上外边隙" >
                 <div class="上文本">{{ bigtitleList[0] }}</div>
                 <div class="下文本" v-if=" bigtitleList.length>=2">{{bigtitleList[1]}}</div>
@@ -22,7 +22,7 @@
                 <div class="黑色的提示">个性表达</div>
             </div>
         </div>
-        <div class="右英雄区 common-margin-right">
+        <div class="右英雄区 ">
             <div class="轮播图容器">
                 <img src="../../src/assets/banner01.jpg" alt="">
 			    <img src="../../src/assets/banner02.jpg" alt="">
@@ -65,6 +65,7 @@ background: radial-gradient(circle, rgb(168 30 255 / 30%) 10%, transparent 60%);
 .左英雄区{
 margin-top:300px;
 width: max-content;float: left;
+margin-left:var(--All-left-margin);
 }
 .左英雄区大标题{
     font-size:60px;
@@ -78,6 +79,7 @@ width: max-content;float: left;
 .左英雄区大标题>.下文本{
     background: linear-gradient(135deg,var(--color-neon),var(--color-neon-green));
     -webkit-background-clip: text;
+    background-clip: text;
   -webkit-text-fill-color: transparent;
     
 }
@@ -91,7 +93,7 @@ width: max-content;float: left;
     border-radius: 10px;
     height:60px;
     font-size:16px;
-    font-weight: 500;
+    font-weight: 500;cursor: pointer;
     
 }
 .大标题下按钮>#了解更多{
@@ -111,7 +113,7 @@ background-color: #0A0A0A;
  width:150px;
 }
 .左外边隙{
-    margin-left:15px;
+    margin-left:var(--中间隙);
 }
 .黑色的提示{
     position:relative;
@@ -122,7 +124,7 @@ background-color: #0A0A0A;
     color:white;
     background-color: #1f1f1f;
     float:left;
-    margin-right: 15px;
+    margin-right: var(--中间隙);
     overflow: hidden;
 }
 .黑色的提示::after{
@@ -152,15 +154,12 @@ background-color: #0A0A0A;
 
 
 
-.tipbackcolor{
-    background-color: var(--color-neon-background1);
-}
 
 .右英雄区{
-            height: 900px;
-    width: 690px;
+            height: 83.33333333vh;
+    width: var(--右大区整体宽度);
     float: right;
-    
+    margin-right:var(--All-right-margin);
     margin-top: 100px;
     border-radius: 25px;
     overflow: hidden;
@@ -192,4 +191,85 @@ background-color: #0A0A0A;
         transform: translateX(-700px);
     }
     }
+
+@media (max-width: 1024px) {
+    #中间光芒{
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+
+    .主体{
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 5vw 60px;
+        box-sizing: border-box;
+    }
+
+    .左英雄区{
+        float: none;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .左英雄区大标题{
+        width: 100%;
+        font-size: clamp(40px, 8vw, 60px);
+    }
+
+    .大标题下{
+        margin-top: 20px;
+        font-size: clamp(16px, 4vw, 20px);
+    }
+
+    .大标题下按钮{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .按钮下{
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .黑色的提示{
+        float: none;
+        margin: 0;
+    }
+
+    .右英雄区{
+        float: none;
+        width: 100%;
+        height: 360px;
+        margin: 60px 0 0;
+    }
+
+    .右英雄区 .轮播图容器{
+        position: relative;
+        width: 200%;
+    }
+
+    .右英雄区 .轮播图容器 img{
+        width: 50%;
+    }
+
+    @keyframes run {
+        0%, 45% {
+            transform: translateX(0);
+        }
+        55%, 95% {
+            transform: translateX(-50%);
+        }
+    }
+}
 </style>

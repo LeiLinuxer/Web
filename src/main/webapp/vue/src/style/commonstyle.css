@@ -1,14 +1,24 @@
-.common-margin-right {
-  margin-right: 190px; /* 统一的右边距 */
 
-}
-.common-margin-left{
-    margin-left:180px;
-}
 
 .上外边隙{
-    margin-top:50px;
+    margin-top:var(--大边隙)
 }
 .小上外边隙{
-  margin-top:20px;
+  margin-top:var(--小边隙);
+}
+.tipbackcolor1{
+  background-color: var(--color-neon-background1);
+}
+.tipbackcolor2{
+  background-color: var(--color-neon-background2);
+}
+.右大区大字{
+  font-size:40px;
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+.右大区中部小字{
+  font-size:var(--中字号);
+  color:var(--color-gray-light);
 }

@@ -226,6 +226,8 @@
 <script setup>
 import { ref } from 'vue';
 import axios from "axios";
+import { useRouter } from 'vue-router';
+const router = useRouter();
 axios.defaults.baseURL = '/api'
 // 响应式变量：控制注册/登录表单切换
 const isRegisterActive = ref(true); // true显示注册，false显示登录
@@ -333,18 +335,14 @@ const handleRegister = async () => {
     const response = await axios.post('/RegisterServlet',formData);
     
     console.log("result:"+response.message);
-    // if (result === 'success') {
-    //   alert('注册成功！');
-    //   // 注册成功后切换到登录表单
-    //   switchToLogin();
-    // } else if (result === 'username_exists') {
-    //   registerErrors.value.username = { show: true, msg: '该账户名已被注册，请更换' };
-    // } else {
-    //   alert('注册失败，请稍后重试');
-    // }
+    if(response.data.message==='成功'){
+      alert('注册成功！');
+    }else{
+      router.push({ name: 'error', params: { errorMsg: response.data.message } });
+    }
+    
   } catch (error) {
-    console.error('注册请求失败：', error);
-    alert('网络连接失败，请检查服务器');
+    router.push({ name: 'error', params: { errorMsg: error.message } });
   }
 };
 
@@ -374,19 +372,17 @@ const handleLogin = async () => {
     formData.append('password', loginForm.value.password.trim());
 
     // 发送登录请求
-    const response = await axios.post('/SignServlet', formData);
-    console.log("登录response:"+JSON.stringify(response));
-    console.log("登录response:"+JSON.stringify(response.data));
-    // if (response.data === 'invalid_credentials') {
-    //   loginErrors.value.credentials = { show: true, msg: '账户名或密码错误' };
-    // } else if (response.data === 'error') {
-    //   window.location.href = 'error.html';
-    // } else {
-    //   window.location.href = 'success.html';
-    // }
+    const response = await axios.post('/SignServlet', formData);//axios拿到的是javascript对象,response.data是对象,response.data.data是对象的属性
+    
+    if(response.data.message === '成功') {
+      router.push({ name: 'success', params: { user: JSON.stringify(response.data.data) } });//要把对象转换为字符串才能传给路由参数，不然会被写成[object Object]
+    }else{
+      router.push({ name: 'error', params: { errorMsg: response.data.message } });
+    }
   } catch (error) {
-    console.error('登录请求失败：', error);
-    alert('网络连接失败，请检查服务器');
+    console.error('登录请求失败：', error.message);
+    router.push({ name: 'error', params: { errorMsg: error.message } });
+    
   }
 };
 </script>
@@ -543,5 +539,48 @@ const handleLogin = async () => {
 .text-danger {
   color: red;
   font-size: 15px;
+}
+
+/* ---------- 移动端适配：宽度小于 960px 时覆盖样式 ---------- */
+@media (max-width: 960px) {
+  .背景 {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .主盒的父 {
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .主盒 {
+    width: 100%;
+    max-width: 420px;
+    margin: 0;
+  }
+
+  .主盒头部 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .主盒主体,
+  .用户名整体框 {
+    width: 100%;
+  }
+
+  .信息输入框 {
+    width: 100%;
+    max-width: none;
+    height: 42px;
+    box-sizing: border-box;
+  }
+
+  .提交按钮,
+  .提交 {
+    width: 100%;
+  }
 }
 </style>
