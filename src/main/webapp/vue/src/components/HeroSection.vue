@@ -12,8 +12,8 @@
                     <div class="大标题下-下">我们不只销售商品，更致力于传递独立、前卫、不被定义的生活态度</div>
             </div> 
             <div class="大标题下按钮 上外边隙" >
-                <button  id="了解更多" type="button">了解更多</button>
-                <button class="左外边隙"id="加入社区" type="button">加入社区</button>
+                <Lightbutton :msg="liaojiegengduo"></Lightbutton>
+                <Darkbutton :msg="jiarushequ"></Darkbutton>
             </div> 
             <div class="按钮下 上外边隙">
                 <div class="黑色的提示">暗黑美学</div>
@@ -32,8 +32,12 @@
     
 </template>
 <script setup>
+import Darkbutton from './darkbutton.vue';
+import Lightbutton from './lightbutton.vue';
 import tips from './tips.vue';
 const message='不止于购物，更是一种态度';
+const liaojiegengduo='立即购物';
+const jiarushequ='浏览精选';
 defineProps({
     bigtitleList:{
         type:Array,
@@ -84,37 +88,11 @@ margin-left:var(--All-left-margin);
     
 }
 
-.大标题下{
-    font-size:20px;
-    color:white;
-}
-.大标题下按钮>button{
-    color:white;
-    border-radius: 10px;
-    height:60px;
-    font-size:16px;
-    font-weight: 500;cursor: pointer;
-    
-}
-.大标题下按钮>#了解更多{
-    background:linear-gradient(50deg,var(--color-neon),var(--color-neon-green));
-    border-style:hidden;
-    width: 120px;
-    background-color: var(--color-neon);
-    transition: all 0.5s ease-in-out;
-}
-.大标题下按钮>#了解更多:hover{
-    box-shadow: -4px 4px 20px 0px #300495;
-    transition: box-shadow 0.2s ease-in-out;
-}
-.大标题下按钮>#加入社区{
-border:1px solid rgb(69, 87, 95);
-background-color: #0A0A0A;
- width:150px;
-}
-.左外边隙{
-    margin-left:var(--中间隙);
-}
+
+
+
+
+
 .黑色的提示{
     position:relative;
     padding:var(--junior-title-padding);

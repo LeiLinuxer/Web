@@ -3,10 +3,10 @@
   <nav class="navbar">
     <span class="logo">{{Title}}</span>
 
-    <span id="middletag">
+    <span id="middletag" ref="tagWrap">
       <span id="uptag" v-for="(item,index) in list":key="index">
 
-        <a id="texttag"href="#"@click="handleClick(item)">{{ item }}</a>
+        <a class="texttag greyTag"href="#"@click="handleClick(item,index)">{{ item }}</a>
 
       </span>
     </span>
@@ -15,13 +15,31 @@
 </template>
 
 <script setup>// javascript
+
+import {onMounted,ref} from "vue";
+
 const menulist=defineProps({
   list:Array,
   Title:String
 });
+const tagWrap = ref(null)
+onMounted(()=>{
+  const shouye=tagWrap.value.querySelectorAll(".greyTag").item(0)
 
- const handleClick=(menuName)=>{//定义点击函数
- console.log('触发点击函数');
+  shouye.classList.remove("greyTag");
+  shouye.classList.add("whiterTag");
+})
+
+
+ const handleClick=(menuName,index)=>{//定义点击函数
+   const items=tagWrap.value.getElementsByClassName("texttag");
+   const currentitem=tagWrap.value.getElementsByClassName("whiterTag").item(0);
+   console.log(currentitem);
+   currentitem.classList.remove("whiterTag");
+   currentitem.classList.add("greyTag");
+   console.log(items.item(index));
+   items.item(index).classList.remove("greyTag");
+   items.item(index).classList.add("whiterTag");//给现在点中的添加
   }
 
  
@@ -53,9 +71,18 @@ position:absolute;
   margin-right: 10px;
 }
 
-#texttag{
-  color:rgb(146, 146, 146);
+.texttag{
+
   text-decoration: none;
+}
+.whiterTag{
+  color: rgb(255, 255, 255);
+}
+.greyTag{
+  color:rgb(146, 146, 146);
+}
+.greyTag:hover{
+  color: rgb(175, 175, 175);
 }
 
 @media (max-width: 960px) {

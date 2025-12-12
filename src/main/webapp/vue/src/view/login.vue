@@ -323,7 +323,7 @@ const handleRegister = async () => {
   // 验证不通过则终止
   if (!isValid) return;
 
-  try {
+
     // 准备表单数据（application/x-www-form-urlencoded格式）
     const formData = new URLSearchParams();
     formData.append('username', registerForm.value.username.trim());
@@ -331,18 +331,26 @@ const handleRegister = async () => {
     formData.append('password', registerForm.value.password.trim());
     formData.append('age', registerForm.value.age || '');
 
-    // 发送注册请求
+  try {  // 发送注册请求
     const response = await axios.post('/RegisterServlet',formData);
-    
-    console.log("result:"+response.message);
-    if(response.data.message==='成功'){
+    let data = response.data;
+
+  if(data.message==='成功'){
       alert('注册成功！');
     }else{
-      router.push({ name: 'error', params: { errorMsg: response.data.message } });
+
+      router.push({ name: 'error', params: { errorCode:data.code, errorMsg: data.message } });
     }
     
   } catch (error) {
-    router.push({ name: 'error', params: { errorMsg: error.message } });
+    let data=error.response.data;
+    if(error.response?.status === 409){
+      console.log(data.message);
+      router.push({ name: 'error', params: {  errorCode:data.code,errorMsg: data.message } });
+    }
+    else{
+    router.push({ name: 'error', params: { errorCode:data.code,errorMsg: error.message } });
+    }
   }
 };
 
@@ -377,6 +385,7 @@ const handleLogin = async () => {
     if(response.data.message === '成功') {
       router.push({ name: 'success', params: { user: JSON.stringify(response.data.data) } });//要把对象转换为字符串才能传给路由参数，不然会被写成[object Object]
     }else{
+
       router.push({ name: 'error', params: { errorMsg: response.data.message } });
     }
   } catch (error) {

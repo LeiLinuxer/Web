@@ -55,7 +55,7 @@ const featureList = [
 .secondsection-bigbox{
     height:700px;
     width: 100%;
-    background-color: rgb(20, 20, 20);
+    background-color: var(--color-gray-lighter);
     padding:80px 0px;
 }
 .左大区{
