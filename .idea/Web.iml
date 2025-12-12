@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/out" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/vue/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/vue/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/vue2/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/vue2/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/lib/apache-maven-3.9.11/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/lib/apache-tomcat-10.1.47/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/lib/graalvm-jdk-17.0.12/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/lib/graalvm-jdk-17.0.12/lib/installer/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/lib/graalvm-jdk-17.0.12/lib/polyglot/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/lib/graalvm-jdk-17.0.12/lib/svm/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/Web/vue/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
