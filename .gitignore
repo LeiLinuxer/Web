@@ -30,3 +30,4 @@ bin/
 
 src/main/webapp/lib/
 ./repository/
+/src/main/webapp/vue2
