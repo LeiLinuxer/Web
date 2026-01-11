@@ -1,0 +1,2 @@
+start nginx。
+若已启动，修改配置后需重启：nginx -s reload。
