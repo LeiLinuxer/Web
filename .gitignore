@@ -28,6 +28,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-src/main/webapp/lib/
+src/main/webapp/
 ./repository/
-/src/main/webapp/vue2
+
