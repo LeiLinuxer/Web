@@ -28,6 +28,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-src/main/webapp/
+src/main/webapp/vue/
+src/main/webapp/vue2/
 ./repository/
 
